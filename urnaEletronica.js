@@ -102,7 +102,59 @@ function urnaEletronica() {
   
     }while (voto!== 0); // enquanto o voto for extritamente diferente de zero, repita a ação
 
-    const  
+    console.log('total de votos candidato 1:'+ totalVotosCandidatos1);
+    console.log('total de votos candidato 2:'+ totalVotosCandidatos2);
+    console.log('total de votos candidato 3:'+ totalVotosCandidatos3);
+    console.log('total de votos candidatos em Branco'+totalVotosBrancos);
+    console.log('total de votos candidatos Nulos'+totalVotosNulo);
+
+
+
+let totalVotos = totalVotosCandidatos1+totalVotosCandidatos2+totalVotosCandidatos3+totalVotosBrancos+totalVotosNulo
+console.log('total de votos candidato 1:'+ (totalVotosCandidatos1 /totalVotos*100)+'%');
+console.log('total de Votos Candidatos 2:'+ (totalVotosCandidatos2 /totalVotos*100)+'%');
+console.log('total de Votos Candidatos 3:'+ (totalVotosCandidatos3 /totalVotos*100)+'%');
+console.log('total de Votos em Brancos:'+ (totalVotosBrancos /totalVotos*100)+'%');
+console.log('total de Votos Nulos:'+ (totalVotosNulo /totalVotos*100)+'%');
+
+if (totalVotosCandidatos1 > totalVotosCandidatos2 && totalVotosCandidatos1 > totalVotosCandidatos3){
+    console.log('Candidato Eleito: candidato 1');
+}else if(totalVotosCandidatos2 > totalVotosCandidatos1 && totalVotosCandidatos2 > totalVotosCandidatos3){
+    console.log('Candidato Eleito: candidato 2');
+}else if (totalVotosCandidatos3 > totalVotosCandidatos1 && totalVotosCandidatos3 > totalVotosCandidatos2){
+        console.log('Candidato Eleito: candidato 3')
+}else {
+    console.log ('Não há vencedor !')
+}
+
+
+let candidatoEleito = 
+
+
+
+
+
+
+
+
+
+// // if (ganhador !== "Empate") {
+//     console.log("Candidato ganhador: " + ganhador);
+//     console.log("Total de votos: " + totalVotos);
+//     console.log("Percentual de votos: " + calcularPercentual(totalVotosValidos, totalVotos) + "%");
+//   } else {
+//     console.log("Situação de empate.");
+//   }
+
+
+
+// console.log( 'Somatoria de votos do candidato 1:' + totalVotosCandidatos1 + totalVotosCandidatos2 + totalVotosCandidatos3 + totalVotosNulo + totalVotosBrancos);
+// console.log('Percentual de votos do candidato 1:' + (totalVotosCandidatos1 / totalVotos*100)+'%')
+   
+    
+
+   
+
 
 
 
