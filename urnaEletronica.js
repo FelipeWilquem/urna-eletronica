@@ -54,6 +54,8 @@
 
 
 
+
+//configuração dos candidatos (votos zerados)
 function urnaEletronica() {
     console.log('Iniciando o programa')
 
@@ -65,9 +67,11 @@ function urnaEletronica() {
     let totalVotosBrancos = 0;
     let totalVotosNulo = 0;
 
+    const nomeCandidato1= prompt ('Digite o nome do Candidato 1')
+    const nomeCandidato2= prompt ('Digite o nome do Candidato 2')
+    const nomeCandidato3= prompt ('Digite o nome do Candidato 3')
 
 
-    let voto;
 
     do {
         console.log('1=candidato1');
@@ -77,58 +81,79 @@ function urnaEletronica() {
         console.log('8=voto nulo');
         console.log('0=encerrar');
 
+
+
+        // sistema de loop para as votações ficarem voltando
         voto = parseInt(prompt('digite seu voto:'));
 
-        if (voto === 1){
+        if (voto === 1) {
             totalVotosCandidatos1++;
             console.log('o candidato 1 recebeu um voto');
-        }else if (voto === 2){
+        } else if (voto === 2) {
             totalVotosCandidatos2++;
             console.log('o candidato 2 recebeu um voto');
-        }else if (voto === 3){
+        } else if (voto === 3) {
             totalVotosCandidatos3++;
             console.log('o candidato 3 recebeu um voto');
-        }else if (voto === 5){
+        } else if (voto === 5) {
             totalVotosBrancos++;
             console.log('o candidato recebeu um voto');
-        }else if(voto === 8){
+        } else if (voto === 8) {
             totalVotosNulo++;
             console.log('o candidato recebeu um voto');
-        }else if(voto === 0){
+        } else if (voto === 0) {
             console.log('Encerrar a votação');
-        }else{
+        } else {
             return;
         }
-  
-    }while (voto!== 0); // enquanto o voto for extritamente diferente de zero, repita a ação
 
-    console.log('total de votos candidato 1:'+ totalVotosCandidatos1);
-    console.log('total de votos candidato 2:'+ totalVotosCandidatos2);
-    console.log('total de votos candidato 3:'+ totalVotosCandidatos3);
-    console.log('total de votos candidatos em Branco'+totalVotosBrancos);
-    console.log('total de votos candidatos Nulos'+totalVotosNulo);
+    } while (voto !== 0); // enquanto o voto for extritamente diferente de zero, repita a ação
+
+    // somatoria de votos
+    console.log('total de votos candidato 1:' + totalVotosCandidatos1);
+    console.log('total de votos candidato 2:' + totalVotosCandidatos2);
+    console.log('total de votos candidato 3:' + totalVotosCandidatos3);
+    console.log('total de votos candidatos em Branco' + totalVotosBrancos);
+    console.log('total de votos candidatos Nulos' + totalVotosNulo);
 
 
 
-let totalVotos = totalVotosCandidatos1+totalVotosCandidatos2+totalVotosCandidatos3+totalVotosBrancos+totalVotosNulo
-console.log('total de votos candidato 1:'+ (totalVotosCandidatos1 /totalVotos*100)+'%');
-console.log('total de Votos Candidatos 2:'+ (totalVotosCandidatos2 /totalVotos*100)+'%');
-console.log('total de Votos Candidatos 3:'+ (totalVotosCandidatos3 /totalVotos*100)+'%');
-console.log('total de Votos em Brancos:'+ (totalVotosBrancos /totalVotos*100)+'%');
-console.log('total de Votos Nulos:'+ (totalVotosNulo /totalVotos*100)+'%');
+    let totalVotos = totalVotosCandidatos1 + totalVotosCandidatos2 + totalVotosCandidatos3 + totalVotosBrancos + totalVotosNulo
+    console.log('total de votos candidato 1:' + (totalVotosCandidatos1 / totalVotos * 100) + '%');
+    console.log('total de Votos Candidatos 2:' + (totalVotosCandidatos2 / totalVotos * 100) + '%');
+    console.log('total de Votos Candidatos 3:' + (totalVotosCandidatos3 / totalVotos * 100) + '%');
+    console.log('total de Votos em Brancos:' + (totalVotosBrancos / totalVotos * 100) + '%');
+    console.log('total de Votos Nulos:' + (totalVotosNulo / totalVotos * 100) + '%');
+    
+    if (totalVotosCandidatos1 > totalVotosCandidatos2 && totalVotosCandidatos1 > totalVotosCandidatos3) {
+        console.log('Candidato Eleito: candidato 1');
+        console.log('Total de votos do ganhador: ' + (totalVotosCandidatos1 + totalVotosBrancos));
+        console.log('Percentual de votos do ganhador:' + ((totalVotosCandidatos1 + totalVotosBrancos) / totalVotos * 100) + '%');
 
-if (totalVotosCandidatos1 > totalVotosCandidatos2 && totalVotosCandidatos1 > totalVotosCandidatos3){
-    console.log('Candidato Eleito: candidato 1');
-}else if(totalVotosCandidatos2 > totalVotosCandidatos1 && totalVotosCandidatos2 > totalVotosCandidatos3){
-    console.log('Candidato Eleito: candidato 2');
-}else if (totalVotosCandidatos3 > totalVotosCandidatos1 && totalVotosCandidatos3 > totalVotosCandidatos2){
-        console.log('Candidato Eleito: candidato 3')
-}else {
-    console.log ('Não há vencedor !')
+    } else if (totalVotosCandidatos2 > totalVotosCandidatos1 && totalVotosCandidatos2 > totalVotosCandidatos3) {
+        console.log('Candidato Eleito: candidato 2');
+        console.log('Total de votos do ganhador:' + (totalVotosCandidatos2 + totalVotosBrancos));
+        console.log('Percentual de votos do ganhador:' +((totalVotosCandidatos2 + totalVotosBrancos)/ totalVotos * 100) + '%');
+
+    } else if (totalVotosCandidatos3 > totalVotosCandidatos1 && totalVotosCandidatos3 > totalVotosCandidatos2) {
+        console.log('Candidato Eleito: candidato 3');
+        console.log('Total de votos do ganhador:' + (totalVotosCandidatos3 + totalVotosBrancos));
+        console.log('Percentual de votos do ganhador:' + ((totalVotosCandidatos3 + totalVotosBrancos)/ totalVotos * 100) + '%');
+    } else {
+        console.log('Não há vencedor !')
+    }
+
+
+
+
+
+
 }
 
 
-let candidatoEleito = 
+
+
+
 
 
 
@@ -150,10 +175,6 @@ let candidatoEleito =
 
 // console.log( 'Somatoria de votos do candidato 1:' + totalVotosCandidatos1 + totalVotosCandidatos2 + totalVotosCandidatos3 + totalVotosNulo + totalVotosBrancos);
 // console.log('Percentual de votos do candidato 1:' + (totalVotosCandidatos1 / totalVotos*100)+'%')
-   
-    
-
-   
 
 
 
@@ -163,4 +184,7 @@ let candidatoEleito =
 
 
 
-}
+
+
+
+
